@@ -1,0 +1,137 @@
+/* ===== Design Tokens ===== */
+
+:root {
+  --navbar-height-desktop: 80px;
+  --navbar-height-tablet: 90px;
+  --navbar-height-phone: 100px;
+
+  --container-width: 1200px;
+  --container-padding-desktop: 24px;
+  --container-padding-phone: 16px;
+}
+
+/* ===== Application Shell Reset ===== */
+
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  max-width: 100%;
+  text-align: left;
+}
+
+/* ===== Global Container Utility ===== */
+
+.app-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
+}
+
+/* ===== Main Content Layout ===== */
+
+main {
+  display: block;
+  width: 100%;
+  padding-top: var(--navbar-height-desktop);
+  padding-bottom: 40px;
+}
+
+section {
+  width: 100%;
+  margin-bottom: 48px;
+}
+
+/* Centered headers used on different pages */
+.gallery-header,
+.page-header {
+  margin-bottom: 32px;
+  padding: 10px 0;
+}
+
+/* ===== Footer Styling ===== */
+
+.app-footer {
+  width: 100%;
+  margin-top: 60px;
+  padding: 32px 20px;
+  text-align: center;
+
+  background: #ffffff;
+  color: #6b7280;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Reduced Motion Support ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+/* ===== Responsive Adjustments ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .app-container {
+    padding: 0 20px;
+  }
+
+  main {
+    padding-top: var(--navbar-height-tablet);
+  }
+}
+
+/* Phone */
+@media (max-width: 500px) {
+  .app-container {
+    padding: 0 var(--container-padding-phone);
+  }
+
+  main {
+    padding-top: var(--navbar-height-phone);
+    padding-bottom: 24px;
+  }
+
+  section {
+    margin-bottom: 32px;
+  }
+
+  .gallery-header,
+  .page-header {
+    margin-bottom: 20px;
+  }
+}
+
+/* ===== Print Styles ===== */
+
+@media print {
+  header,
+  nav,
+  button {
+    display: none !important;
+  }
+
+  main {
+    padding: 20px 0;
+  }
+
+  .app-footer {
+    box-shadow: none;
+    border: 1px solid #dddddd;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  a {
+    color: #000000;
+  }
+}

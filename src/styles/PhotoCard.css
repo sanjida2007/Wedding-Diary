@@ -1,0 +1,83 @@
+/* ===== Photo Card ===== */
+
+.photo-card {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  outline: none;
+  border: 1px solid rgba(236, 72, 153, 0.12);
+  transition: box-shadow 0.2s ease;
+}
+
+.photo-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.4);
+}
+
+/* Image wrapper */
+.photo-card-image-wrapper {
+  overflow: hidden;
+  border-radius: var(--radius-md, 12px);
+  background: #fafafa;
+}
+
+/* Image */
+.photo-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md, 12px);
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover .photo-card-image {
+  transform: scale(1.04);
+}
+
+/* Title */
+.photo-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-dark, #111827);
+  margin: 4px 0;
+  text-align: center;
+}
+
+/* Footer row */
+.photo-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Download button */
+.photo-card-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-primary, #ec4899);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: var(--radius-md, 12px);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--color-primary, #ec4899);
+  transition: all 0.2s ease;
+}
+
+.photo-card-download-btn:hover {
+  background: #ffffff;
+  color: var(--color-primary-hover, #db2777);
+  border-color: var(--color-primary-hover, #db2777);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.25);
+}
+
+/* icon */
+.download-icon {
+  font-size: 1rem;
+}

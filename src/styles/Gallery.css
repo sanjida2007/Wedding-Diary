@@ -1,0 +1,307 @@
+/* ===== Gallery Section Shell ===== */
+
+.gallery-section {
+  width: 100%;
+  max-width: 100%;
+  margin-top: calc(var(--navbar-height-desktop) + 16px);
+  padding-bottom: 32px;
+}
+
+/* ===== Gallery Header ===== */
+
+.gallery-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px auto;
+  padding: 28px 16px;
+  text-align: center;
+}
+
+/* Lead paragraph */
+.gallery-header .text-lead {
+  margin-top: 12px;
+  color: #6b7280;
+  font-size: 1.15rem;
+}
+
+/* ===== Premium Header Carousel ===== */
+
+.gallery-header-carousel {
+  width: 100%;
+  margin: 0 0 32px 0;
+
+}
+
+/* Carousel frame */
+.carousel-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  animation: softAppear 0.6s ease;
+}
+
+/* Header image */
+.carousel-header-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Title overlay */
+.header-carousel-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 12px 20px;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #111827;
+  text-align: center;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Decorative label */
+.header-carousel-title::before {
+  content: "Wedding Memories";
+  position: absolute;
+
+  top: -38px;
+  left: 16px;
+
+  background: #ffffff;
+  color: #374151;
+
+  padding: 8px 14px;
+  border-radius: 12px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Image Grid ===== */
+
+.professional-grid {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  padding: 16px 0;
+  margin-bottom: 40px;
+}
+
+.popup-photo-wrapper {
+  position: relative;
+  cursor: pointer;
+  border-radius: 14px;
+  overflow: hidden;
+  outline: none;
+}
+
+.grid-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  border-radius: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.popup-photo-wrapper:hover .grid-image {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Title Overlay */
+.photo-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* ===== Modal Styling ===== */
+
+.image-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2000;
+  padding: 20px;
+}
+
+.image-modal-content {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+
+  max-width: 900px;
+  width: 100%;
+  padding: 24px;
+
+  text-align: center;
+  animation: popupFade 0.3s ease;
+}
+
+.modal-preview-image {
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* Nav row */
+.modal-nav-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Close Button */
+.modal-close-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  background: #111827;
+  color: #ffffff;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.modal-close-x:hover {
+  transform: rotate(90deg);
+}
+
+/* Counters */
+.carousel-counter {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* ===== Animations ===== */
+
+@keyframes softAppear {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== Responsive Grid Columns ===== */
+
+@media (max-width: 1100px) {
+  .professional-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .professional-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .carousel-header-image {
+    height: 340px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  /* Ensure compact but readable grid */
+  .professional-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 8px 0;
+  }
+
+  /* Prevent overlap with taller stacked navbar */
+  .gallery-page {
+    margin-top: 12px;
+  }
+
+  /* Properly scale the carousel for phones */
+  .carousel-header-image {
+    height: 240px;
+  }
+
+  /* Reduce modal container padding */
+  .image-modal-content {
+    padding: 14px;
+  }
+
+  /* Keep modal images comfortable on phones */
+  .modal-preview-image {
+    max-height: 360px;
+  }
+
+  /* Navigation buttons slightly smaller */
+  .modal-nav-row button,
+  .modal-download-btn {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+
+
+

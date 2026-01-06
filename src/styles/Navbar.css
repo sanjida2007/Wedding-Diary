@@ -1,0 +1,128 @@
+/* ===== Premium Wedding Diary Navbar ===== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+:root {
+  --navbar-height: 72px;
+  --accent: #ec4899;
+  --accent-hover: #db2777;
+  --bg-dark: rgba(15, 23, 42, 0.96);
+  --bg-glass: rgba(255, 255, 255, 0.08);
+  --text-light: #f8fafc;
+  --text-muted: #cbd5e1;
+}
+
+/* Fixed header so nothing hides */
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: var(--bg-dark);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Main navbar container */
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  font-family: "Inter", sans-serif;
+  min-height: var(--navbar-height);
+}
+
+/* ===== Brand ===== */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  font-size: 26px;
+  color: var(--accent);
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-light);
+  text-decoration: none;
+  letter-spacing: 0.4px;
+}
+
+/* ===== Links ===== */
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 14px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  background: var(--bg-glass);
+  color: var(--text-light);
+}
+
+.nav-link.active {
+  background: var(--bg-glass);
+  color: var(--accent);
+  border: 1px solid rgba(236, 72, 153, 0.4);
+}
+
+/* ===== Hamburger Button ===== */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* ===== Mobile Menu ===== */
+.mobile-menu {
+  display: none;
+}
+
+/* ===== Realistic Small Device Toggle ===== */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: var(--bg-dark);
+  }
+}

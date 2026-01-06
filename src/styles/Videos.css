@@ -1,0 +1,115 @@
+/* ===== Videos.css – Professional Wedding Portfolio Styling ===== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --background-light: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --accent-light: #f1f5f9;
+  --border-soft: #e2e8f0;
+}
+
+/* ===== Section Layout ===== */
+.videos-section {
+  padding: 48px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+
+    /* NAVBAR OFFSET FIX */
+  margin-top: 80px;
+}
+
+/* ===== Header ===== */
+.videos-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.videos-title {
+  font-size: 30px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.videos-header-icon {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.videos-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* ===== Grid Layout ===== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 28px;
+  padding-top: 10px;
+}
+
+/* ===== Empty State ===== */
+.videos-empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--accent-light);
+  border-radius: 16px;
+  border: 1px dashed var(--border-soft);
+  font-size: 14px;
+}
+
+/* ===== Subtle Grid Entry Animation ===== */
+.video-grid > * {
+  animation: portfolioFadeIn 0.45s ease forwards;
+}
+
+@keyframes portfolioFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Refinements ===== */
+@media (max-width: 1024px) {
+  .videos-title {
+    font-size: 24px;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .videos-title {
+    font-size: 22px;
+  }
+
+  .videos-subtitle {
+    font-size: 13.5px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

@@ -67,7 +67,7 @@
   text-align: center;
   color: var(--text-secondary);
   background: var(--accent-light);
-  border-radius: 16px;
+  border-radius: 10px;
   border: 1px dashed var(--border-soft);
   font-size: 14px;
 }

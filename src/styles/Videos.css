@@ -15,8 +15,7 @@
   padding: 48px 24px;
   max-width: 1280px;
   margin: 0 auto;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-
+  
     /* NAVBAR OFFSET FIX */
   margin-top: 100px;
 }
@@ -26,6 +25,12 @@
   margin-bottom: 40px;
   text-align: center;
 }
+/* ===== HERO TITLE COLOR ===== */
+.videos-header h2 {
+  color: #ec4899;
+  
+}
+
 
 .videos-title {
   font-size: 3rem;
@@ -39,13 +44,14 @@
   letter-spacing: 0.5px;
 }
 
-.videos-header-icon {
+.videos-header {
   font-size: 18px;
   color: var(--text-secondary);
+  
 }
 
 .videos-subtitle {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--text-secondary);
   margin-top: 10px;
   max-width: 700px;

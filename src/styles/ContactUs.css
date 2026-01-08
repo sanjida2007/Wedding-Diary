@@ -60,22 +60,24 @@
   gap: 20px;
 }
 
+/* Form Labels */
 .form-group label {
   font-size: 14px;
   font-weight: 600;
-  color: #0f172a; /* dark slate */
+  color: #ec4899; /* updated to pink */
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
   position: relative;
 }
+
 .form-group label::after {
   content: "";
 }
 .form-group label span,
 .form-group label strong {
-  color: #ef4444;
+  color: #000000;
 }
 
 .form-group input,

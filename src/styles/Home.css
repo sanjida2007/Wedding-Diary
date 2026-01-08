@@ -18,7 +18,9 @@
   text-align: center;
   padding: 20px 10px;
 }
-
+.hero-intro h1 {
+  color: #ec4899;
+}
 .hero-heading {
   font-size: 3rem;
   font-weight: 800;
@@ -177,6 +179,23 @@
 .photo-frame:hover .carousel-image {
   transform: scale(1.02);
 }
+/* ===== PHOTO CAROUSEL NAV BUTTONS ===== */
+.carousel-controls button {
+  background: #ec4899;   /* pink color */
+  color: #ffffff;        /* white text for contrast */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-controls button:hover {
+  background: #db2777;   /* slightly darker pink on hover */
+  transform: scale(1.05);
+}
+
 
 /* ===== GLASS FLOATING CONTROLS ===== */
 
@@ -302,6 +321,23 @@
   letter-spacing: -0.3px;
   color: #0f172a;
 }
+/* ===== VIDEO NAVIGATION BUTTONS ===== */
+.film-nav button {
+  background: #ec4899;   /* pink color */
+  color: #ffffff;        /* white text for contrast */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.film-nav button:hover {
+  background: #db2777;   /* slightly darker pink on hover */
+  transform: scale(1.05);
+}
+
 
 /* ===== THUMBNAILS STRIP ===== */
 

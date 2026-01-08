@@ -3,7 +3,7 @@ import photos from "../data/photos";
 import "../styles/Gallery.css";
 
 const Gallery = () => {
-  const [search, setSearch] = useState("");
+  const [search] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -19,13 +19,10 @@ const Gallery = () => {
   }, [search]);
 
   // Open modal with correct photo index from filtered set
-  const openModal = useCallback(
-    (index) => {
-      setActiveIndex(index);
-      setModalOpen(true);
-    },
-    []
-  );
+  const openModal = useCallback((index) => {
+    setActiveIndex(index);
+    setModalOpen(true);
+  }, []);
 
   const closeModal = () => setModalOpen(false);
 
@@ -81,7 +78,8 @@ const Gallery = () => {
           <h1 className="mb-4">Photo Gallery</h1>
 
           <p className="text-lead">
-            Browse and download high-resolution images from our wedding celebration
+            Browse and download high-resolution images from our wedding
+            celebration
           </p>
         </div>
 
@@ -120,6 +118,10 @@ const Gallery = () => {
               <div className="photo-title-overlay">{photo.title}</div>
             </div>
           ))}
+        </div>
+        {/* End of Gallery Message */}
+        <div className="gallery-end-message">
+          That's all the photos for now! 💖
         </div>
 
         {/* Modal Popup */}

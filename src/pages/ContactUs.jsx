@@ -46,12 +46,12 @@ const ContactUs = () => {
         <div className="contact-card">
           <form ref={formRef} className="contact-form" onSubmit={sendEmail}>
             <div className="form-group">
-              <label><FaUser /> Your Name <span className="required">*</span></label>
+              <label><FaUser /> Your Name<span className="required">*</span></label>
               <input type="text" name="name" required />
             </div>
 
             <div className="form-group">
-              <label><FaUser /> Email <span className="required">*</span></label>
+              <label><FaUser /> Email<span className="required">*</span></label>
               <input type="email" name="email" required />
             </div>
 
@@ -61,7 +61,7 @@ const ContactUs = () => {
             </div>
 
             <div className="form-group">
-              <label><FaUser /> Message <span className="required">*</span></label>
+              <label><FaUser /> Message<span className="required">*</span></label>
               <textarea name="message" required />
             </div>
 

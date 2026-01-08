@@ -16,6 +16,10 @@
   padding: 28px 16px;
   text-align: center;
 }
+/* ===== HERO TITLE COLOR ===== */
+.gallery-header h1 {
+  color: #ec4899;
+}
 
 /* Lead paragraph */
 .gallery-header .text-lead {
@@ -136,6 +140,16 @@
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
+/* ===== END OF GALLERY MESSAGE ===== */
+.gallery-end-message {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ec4899; /* Pink accent for consistency */
+  margin-top: 40px;
+  letter-spacing: 0.5px;
+}
+
 
 /* Title Overlay */
 .photo-title-overlay {
@@ -301,6 +315,7 @@
     font-size: 0.9rem;
     padding: 8px 14px;
   }
+  
 }
 
 

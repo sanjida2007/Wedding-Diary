@@ -95,6 +95,18 @@
     gap: 12px;
   }
 
+  /* Center brand on small devices */
+  .navbar-brand {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .brand-title {
+    text-align: center;
+  }
+
+  /* Keep menu centered below */
   .desktop-menu {
     display: flex;
     flex-wrap: wrap;

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Videos from "./pages/Videos";
+import ContactUs from "./pages/ContactUs";
 import "./App.css";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/videos" element={<Videos />} />
+          <Route path="/contact" element={<ContactUs />} />
         </Routes>
       </div>
       <Footer />

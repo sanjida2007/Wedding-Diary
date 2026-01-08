@@ -42,6 +42,12 @@ const Navbar = () => {
               Videos
             </NavLink>
           </li>
+          
+          <li>
+            <NavLink to="/contact" className={getLinkClasses}>
+              Contact Us
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

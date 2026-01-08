@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="footer-divider" />
 
         <p className="footer-copy">
-          Wedding Diary © 2026 – Crafted with love
+          Wedding Diary © 2026 – Crafted with love by Sayem
         </p>
       </div>
     </footer>

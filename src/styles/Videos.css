@@ -18,7 +18,7 @@
   font-family: "Inter", system-ui, -apple-system, sans-serif;
 
     /* NAVBAR OFFSET FIX */
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 /* ===== Header ===== */
@@ -28,14 +28,15 @@
 }
 
 .videos-title {
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   color: var(--text-primary);
-  letter-spacing: -0.3px;
+  color: #0f172a;
+  letter-spacing: 0.5px;
 }
 
 .videos-header-icon {

@@ -192,12 +192,12 @@ const Home = () => {
               </button>
             </nav>
           </div>
-{/* Centered Glass Buttons */}
-<div className="center-btn">
-  <Link to="/gallery" className="glass-btn">
-    ⬇ View Full Gallery
-  </Link>
-</div>
+          {/* Centered Glass Buttons */}
+          <div className="center-btn">
+            <Link to="/gallery" className="glass-btn">
+              ⬇ View Full Gallery
+            </Link>
+          </div>
         </article>
 
         {/* ===== VIDEO CAROUSEL ===== */}
@@ -257,11 +257,11 @@ const Home = () => {
               <p>Our wedding films will be uploaded shortly</p>
             </div>
           )}
-<div className="center-btn">
-  <Link to="/videos" className="glass-btn">
-    ⬇ Watch All Films
-  </Link>
-</div>
+          <div className="center-btn">
+            <Link to="/videos" className="glass-btn">
+              ⬇ Watch All Films
+            </Link>
+          </div>
         </article>
       </section>
     </main>

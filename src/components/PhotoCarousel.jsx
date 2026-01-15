@@ -149,7 +149,7 @@ const PhotoCarousel = ({ photos }) => {
 
         {/* Center Button */}
         <div className="center-btn">
-          <Link to="/gallery" className="glass-btn">
+          <Link to="/gallery" className="glass-btn-photo">
             ⬇ View Full Gallery
           </Link>
         </div>

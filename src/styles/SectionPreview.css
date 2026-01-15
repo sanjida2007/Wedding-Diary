@@ -1,0 +1,280 @@
+/* ===== ABOUT PREVIEW ===== */
+/* ===== ABOUT PREVIEW CONTAINER ===== */
+.about-preview-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  animation: fadeSlideUp 1s ease forwards;
+  position: relative;
+  padding: 40px 0;
+}
+
+/* ===== IMAGE CONTAINER ===== */
+.about-preview-image {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 32px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  cursor: pointer;
+}
+
+.about-preview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 32px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.about-preview-image:hover img {
+  transform: scale(1.08) translateY(-4px);
+  filter: brightness(1.05);
+}
+
+/* ===== GRADIENT OVERLAY ===== */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(236, 72, 153, 0.25),
+    rgba(245, 158, 171, 0.15)
+  );
+  border-radius: 32px;
+  transition: opacity 0.5s ease;
+}
+
+.about-preview-image:hover .image-overlay {
+  opacity: 0.08;
+}
+
+/* ===== FLOATING ICONS ===== */
+.floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.floating-icons .icon-heart,
+.floating-icons .icon-ring,
+.floating-icons .icon-dove {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatUp 6s ease-in-out infinite;
+}
+.floating-icons .icon-heart { left: 12%; top: 72%; animation-delay: 0s; }
+.floating-icons .icon-ring { left: 78%; top: 78%; animation-delay: 1s; }
+.floating-icons .icon-dove { left: 52%; top: 62%; animation-delay: 2s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  25% { transform: translateY(-12px) rotate(10deg); opacity: 1; }
+  50% { transform: translateY(-18px) rotate(-10deg); opacity: 1; }
+  75% { transform: translateY(-12px) rotate(10deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+}
+
+/* ===== TEXT CONTENT ===== */
+.about-preview-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px 0;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-preview-text:hover {
+  transform: translateY(-3px);
+}
+
+.about-preview-text p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.about-preview-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 20px;
+}
+
+.about-preview-text ul li {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ===== HIGHLIGHTED TEXT ===== */
+.highlight {
+  background: linear-gradient(90deg, #ec4899, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== BUTTON STYLING ===== */
+.glass-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(236,72,153,0.9), rgba(244,114,182,0.85));
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.glass-btn.shine-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+}
+
+.glass-btn.shine-hover:hover::after {
+  left: 125%;
+}
+
+.glass-btn.glow-hover:hover {
+  box-shadow: 0 0 25px rgba(236,72,153,0.6), 0 0 45px rgba(244,114,182,0.4);
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-preview-container {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-preview-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .about-preview-image,
+  .about-preview-text {
+    width: 100%;
+  }
+
+  .about-preview-text ul {
+    justify-content: center;
+  }
+}
+
+
+/* ===== CONTACT PREVIEW ===== */
+.contact-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+  animation: fadeSlideUp 1s ease forwards;
+  text-align: center;
+  position: relative;
+}
+
+.floating-confetti span {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: confettiFloat 4s ease-in-out infinite;
+}
+.floating-confetti span:nth-child(1) { left: 20%; animation-delay: 0s; }
+.floating-confetti span:nth-child(2) { left: 50%; animation-delay: 0.5s; }
+.floating-confetti span:nth-child(3) { left: 70%; animation-delay: 1s; }
+.floating-confetti span:nth-child(4) { left: 40%; animation-delay: 1.2s; }
+.floating-confetti span:nth-child(5) { left: 60%; animation-delay: 1.5s; }
+
+@keyframes confettiFloat {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-18px) rotate(25deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+}
+
+/* ===== Buttons with shine hover ===== */
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-hover::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.35);
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+}
+
+.shine-hover:hover::after {
+  left: 125%;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .about-preview-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-preview-image,
+  .about-preview-text {
+    width: 100%;
+  }
+
+  .contact-preview-container {
+    align-items: center;
+  }
+}
+
+/* ===== PINK BUTTON STYLING ===== */
+.glass-btn.about-btn,
+.glass-btn.contact-btn {
+  background: linear-gradient(135deg, #ec4899, #f472b6); /* Pink gradient */
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Shine effect */
+.glass-btn.about-btn.shine-hover::after,
+.glass-btn.contact-btn.shine-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-25deg);
+  transition: all 0.7s ease;
+}
+
+.glass-btn.about-btn.shine-hover:hover::after,
+.glass-btn.contact-btn.shine-hover:hover::after {
+  left: 125%;
+}
+
+/* Glow on hover */
+.glass-btn.about-btn.glow-hover:hover,
+.glass-btn.contact-btn.glow-hover:hover {
+  box-shadow: 0 0 25px rgba(236,72,153,0.6), 0 0 45px rgba(244,114,182,0.4);
+  transform: translateY(-2px) scale(1.02);
+}

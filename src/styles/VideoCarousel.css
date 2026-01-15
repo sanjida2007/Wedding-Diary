@@ -100,7 +100,7 @@
   margin-top: 16px;
 }
 
-.glass-btn {
+.glass-btn-full {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +115,7 @@
   transition: all 0.3s ease;
 }
 
-.glass-btn:hover {
+.glass-btn-full:hover {
   background: rgba(155, 154, 154, 0.285);
   transform: translateY(-3px);
   color: #00000093;

@@ -250,6 +250,27 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
+.glass-btn-photo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 14px;
+  background: rgba(155, 154, 154, 0.17);
+  color: #00000052;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.glass-btn-photo:hover {
+  background: rgba(155, 154, 154, 0.285);
+  transform: translateY(-3px);
+  color: #00000093;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
 /* ===== Modal Row Containers ===== */
 .modal-nav-row,
 .modal-action-row {

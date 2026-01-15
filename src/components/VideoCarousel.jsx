@@ -98,7 +98,7 @@ const VideoCarousel = ({ videos }) => {
       </div>
 
       <div className="center-btn">
-        <a href="/videos" className="glass-btn">
+        <a href="/videos" className="glass-btn-full">
           ⬇ Watch All Films
         </a>
       </div>

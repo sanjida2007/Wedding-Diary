@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"; 
 import { Link } from "react-router-dom";
 import photos from "../data/photos";
 import videos from "../data/videos";
 import "../styles/Home.css";
 import PhotoCarousel from "../components/PhotoCarousel";
 import VideoCarousel from "../components/VideoCarousel";
+import SectionPreview from "../components/SectionPreview";
+
 
 const Home = () => {
   // ===== Scroll Fade-In Effect =====
@@ -13,9 +15,7 @@ const Home = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
       { threshold: 0.3 }
@@ -29,28 +29,30 @@ const Home = () => {
     <main className="pt-20 min-h-screen bg-gray-50">
       <section className="max-w-6xl mx-auto px-6 py-14">
         {/* ===== HERO ===== */}
-        <header className="hero-intro">
-          <h1>Our Wedding Journey</h1>
-          <p>
-            A digital collection preserving the most beautiful moments of our
-            celebration
+        <header className="hero-intro cinematic-hero scroll-fade">
+          <div className="hero-bg-overlay"></div>
+          <h1 className="typewriter">Our Wedding Journey</h1>
+          <p className="hero-tagline">
+            A digital collection preserving the most beautiful moments of our celebration
           </p>
+          <div className="hero-floating-icons">
+            <span>💖</span>
+            <span>💍</span>
+            <span>🕊️</span>
+          </div>
         </header>
 
         {/* ===== QUICK NAVIGATION ===== */}
-        <section className="quick-nav">
+        <section className="quick-nav scroll-fade">
           <Link to="/gallery" className="nav-card">
             <h3>📸 Gallery</h3>
           </Link>
-
           <Link to="/videos" className="nav-card">
             <h3>🎬 Videos</h3>
           </Link>
-
           <Link to="/about" className="nav-card">
-            <h3>💍 Story </h3>
+            <h3>💍 Story</h3>
           </Link>
-
           <Link to="/contact" className="nav-card">
             <h3>📩 Contact</h3>
           </Link>
@@ -62,77 +64,11 @@ const Home = () => {
         {/* ===== VIDEO CAROUSEL ===== */}
         <VideoCarousel videos={videos} />
 
-        {/* ===== ABOUT SECTION PREVIEW ===== */}
-        <section className="section-card about-preview scroll-fade">
-          <h2 className="section-title">Our Wedding Story</h2>
-          <div className="about-preview-container">
-            <div className="about-preview-image parallax-image">
-              <div className="image-overlay"></div>
-              <img
-                src="https://drive.google.com/thumbnail?id=1DRzXkvZtDUl_pmGmzE4JCeiLWvhG1-eV&sz=w1000"
-                alt="Couple holding hands, smiling together"
-                loading="lazy"
-              />
-              <div className="floating-icons">
-                <span className="icon-heart">💖</span>
-                <span className="icon-ring">💍</span>
-                <span className="icon-dove">🕊️</span>
-              </div>
-            </div>
+        {/* ===== ABOUT & Contact SECTION PREVIEW ===== */}
+        
+      <SectionPreview />
 
-            <div className="about-preview-text">
-              <p>
-                Our wedding marked the beginning of a{" "}
-                <span className="highlight">beautiful journey</span> together.
-                Thanks to all our{" "}
-                <span className="highlight">friends and family</span> for the
-                love and support 💖
-              </p>
-              <ul>
-                <li>
-                  <strong>Groom:</strong> Md Aminul Islam Sayem
-                </li>
-                <li>
-                  <strong>Bride:</strong> Mashruba Akter Sumona
-                </li>
-                <li>
-                  <strong>Date:</strong> 05 Dec 2025
-                </li>
-              </ul>
-              <Link
-                to="/about"
-                className="glass-btn about-btn shine-hover glow-hover"
-              >
-                💍 Read Our Story
-              </Link>
-            </div>
-          </div>
-        </section>
 
-        {/* ===== CONTACT SECTION PREVIEW ===== */}
-        <section className="section-card contact-preview scroll-fade">
-          <h2 className="section-title">Send Your Wishes 💖</h2>
-          <div className="contact-preview-container">
-            <p>
-              We’d love to hear from you! Send your{" "}
-              <span className="highlight">messages, wishes</span>, or{" "}
-              <span className="highlight">questions</span> to Sayem & Sumona 💍
-            </p>
-            <Link
-              to="/contact"
-              className="glass-btn contact-btn shine-hover glow-hover"
-            >
-              📩 Send a Message
-            </Link>
-            <div className="floating-confetti">
-              <span>🎉</span>
-              <span>💖</span>
-              <span>💍</span>
-              <span>✨</span>
-              <span>🕊️</span>
-            </div>
-          </div>
-        </section>
       </section>
     </main>
   );

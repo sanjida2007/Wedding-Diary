@@ -1,5 +1,4 @@
 /* ===== APPLICATION SHELL ===== */
-
 .home-shell {
   min-height: 100vh;
   background: #f8fafc;
@@ -12,20 +11,13 @@
 }
 
 /* ===== HERO SECTION ===== */
-
 .hero-intro {
   text-align: center;
   padding: 20px 10px;
 }
+
 .hero-intro h1 {
   color: #ec4899;
-}
-.hero-heading {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #0f172a;
-  margin-bottom: 14px;
 }
 
 .hero-tagline {
@@ -37,8 +29,7 @@
   letter-spacing: 0.3px;
 }
 
-/* ===== RESPONSIVE BEHAVIOR ===== */
-
+/* ===== RESPONSIVE HERO ===== */
 @media (max-width: 900px) {
   .hero-heading {
     font-size: 2.4rem;
@@ -60,11 +51,6 @@
   }
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 70px;
-}
-
 .hero h1 {
   font-size: 3.8rem;
   font-weight: 900;
@@ -82,7 +68,6 @@
 }
 
 /* ===== CARDS ===== */
-
 .section-card {
   background: #ffffff;
   padding: 28px;
@@ -90,15 +75,6 @@
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.05);
   margin-bottom: 60px;
 }
-
-.section-title {
-  font-size: 2.1rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 24px;
-  color: #111827;
-}
-/* ===== SECTION HEADINGS ===== */
 
 .section-title {
   font-size: 1.9rem;
@@ -110,7 +86,7 @@
   line-height: 1.3;
 }
 
-/* realistic elegant accent line */
+/* Accent line */
 .section-title::after {
   content: "";
   display: block;
@@ -121,13 +97,12 @@
   border-radius: 2px;
 }
 
-/* contextual card spacing */
+/* Contextual spacing */
 .section-card .section-title {
   margin-top: 8px;
 }
 
 /* ===== RESPONSIVE ===== */
-
 @media (max-width: 640px) {
   .section-title {
     font-size: 1.45rem;
@@ -139,309 +114,19 @@
   }
 }
 
-/* ===== PHOTO CAROUSEL ===== */
-
-.carousel-container {
-  padding: 10px;
-}
-
-.photo-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #000000;
-}
-
-/* image transitions */
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 1;
-  transition: opacity 1s ease-in-out, transform 1.2s ease;
-}
-
-.photo-frame:hover .carousel-image {
-  transform: scale(1.02);
-}
-/* ===== PHOTO CAROUSEL NAV BUTTONS ===== */
-.carousel-controls button {
-  background: #ec4899; /* pink color */
-  color: #ffffff; /* white text for contrast */
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.carousel-controls button:hover {
-  background: #db2777; /* slightly darker pink on hover */
-  transform: scale(1.05);
-}
-
-/* ===== GLASS FLOATING CONTROLS ===== */
-
-.elegant-controls {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.78);
-  padding: 8px 12px;
-  border-radius: 20px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
-}
-
-.elegant-controls button {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 1.6rem;
-  line-height: 1;
-  padding: 4px 10px;
-  color: #111827;
-  transition: transform 0.3s ease;
-}
-
-.position-badge {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #374151;
-}
-
-/* download */
-.download-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-
-  background: rgba(0, 0, 0, 0.45);
-  color: #ffffff;
-
-  padding: 6px 12px;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-
-/* ===== VIDEO PART – MORE ELEGANT ===== */
-
-.video-carousel {
-  background: linear-gradient(to bottom, #ffffff, #f1f5f9);
-}
-
-.video-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  animation: filmFade 1.2s ease forwards;
-}
-
-@keyframes filmFade {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.video-frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #000000;
-
-  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
-
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-}
-
-.video-frame:hover {
-  transform: scale(1.01);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18), 0 0 40px rgba(0, 0, 0, 0.06);
-}
-
-/* Overlay Badge */
-
-.film-overlay {
-  margin-bottom: 10px;
-}
-
-.film-badge {
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.85);
-  color: #020617;
-  font-size: 0.95rem;
-  font-weight: 800;
-  padding: 6px 14px;
-  border-radius: 16px;
-  letter-spacing: 1px;
-}
-
-/* Film Title */
-
-.film-title {
-  margin-top: 22px;
-  font-size: 2.2rem;
-  font-weight: 900;
-  letter-spacing: -0.3px;
-  color: #0f172a;
-}
-/* ===== VIDEO NAVIGATION BUTTONS ===== */
-.film-nav button {
-  background: #ec4899; /* pink color */
-  color: #ffffff; /* white text for contrast */
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.film-nav button:hover {
-  background: #db2777; /* slightly darker pink on hover */
-  transform: scale(1.05);
-}
-
-/* ===== THUMBNAILS STRIP ===== */
-
-.film-thumbnails {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  margin-top: 34px;
-  flex-wrap: wrap;
-}
-
-.thumb {
-  width: 190px;
-  cursor: pointer;
-  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
-
-  opacity: 0.7;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.thumb:hover {
-  transform: translateY(-4px) scale(1.05);
-  opacity: 1;
-
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.03);
-}
-
-.active-thumb {
-  opacity: 1;
-  transform: scale(1.08);
-}
-
-/* ===== EMPTY STATE ===== */
-
-.film-empty {
-  padding: 40px 20px;
-  font-size: 1.4rem;
-  color: #9ca3af;
-  text-align: center;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media (max-width: 640px) {
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-
-  .section-card {
-    padding: 18px;
-    border-radius: 24px;
-  }
-
-  .thumb {
-    width: 130px;
-  }
-
-  .film-title {
-    font-size: 1.45rem;
-  }
-
-  .film-description {
-    font-size: 1rem;
-  }
-
-  .film-nav button {
-    padding: 8px 14px;
-    font-size: 0.9rem;
-  }
-}
-
-/* ===== VIEW FULL GALLERY / FILMS ===== */
-/* ===== Center wrapper ===== */
-.center-btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-/* ===== Glass / Download-style button ===== */
-.glass-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 16px;
-  border-radius: 14px;
-
-  background: rgba(155, 154, 154, 0.17); /* semi-transparent */
-  color: #00000052;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-/* Hover effect */
-.glass-btn:hover {
-  background: rgba(155, 154, 154, 0.285); /* darker on hover */
-  transform: translateY(-3px);
-  color: #00000093;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-}
-
 /* ===== QUICK NAVIGATION ===== */
-
 .quick-nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px; /* slightly larger gap for elegance */
-  margin: 0px auto 20px; /* top & bottom spacing from sections */
-  max-width: 1400px; /* center in page */
-  padding: 0 12px; /* horizontal padding for small screens */
+  gap: 24px;
+  margin: 0 auto 20px;
+  max-width: 1400px;
+  padding: 0 12px;
 }
 
 .nav-card {
-  background: rgba(255, 255, 255, 0.85); /* glassy effect */
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 20px 12px;
   text-align: center;
@@ -465,7 +150,7 @@
   color: #ec4899;
 }
 
-/* ===== RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 900px) {
   .quick-nav {
     grid-template-columns: repeat(2, 1fr);
@@ -491,55 +176,4 @@
   font-weight: 600;
   color: #475569;
   margin-bottom: 24px;
-}
-/* ===== Favorite / Like Button ===== */
-.like-btn {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(255, 255, 255, 0.6);
-  border: none;
-  padding: 6px 10px;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  color: #ec4899;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.like-btn:hover {
-  transform: scale(1.15);
-  background: rgba(255, 255, 255, 0.85);
-}
-
-.like-btn.liked {
-  color: #e11d48; /* deep pink if liked */
-}
-
-/* ===== Social Share Buttons ===== */
-.share-buttons {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  display: flex;
-  gap: 10px;
-}
-
-.share-buttons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px; /* space between icon and text */
-  background: rgba(255, 255, 255, 0.6);
-  padding: 6px 10px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  color: #111827;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-
-.share-buttons a:hover {
-  background: rgba(255, 255, 255, 0.85);
-  transform: scale(1.1);
 }

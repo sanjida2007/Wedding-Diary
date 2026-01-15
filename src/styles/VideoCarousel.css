@@ -1,0 +1,145 @@
+.video-carousel {
+  background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+}
+
+.video-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  animation: filmFade 1.2s ease forwards;
+}
+
+@keyframes filmFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.video-frame:hover {
+  transform: scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18), 0 0 40px rgba(0, 0, 0, 0.06);
+}
+
+.film-title {
+  margin-top: 22px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.film-description {
+  font-size: 1rem;
+  color: #475569;
+  margin-top: 10px;
+}
+
+.film-nav button {
+  background: #ec4899;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 8px;
+}
+
+.film-nav button:hover {
+  background: #db2777;
+  transform: scale(1.05);
+}
+
+.carousel-counter {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.film-share-buttons {
+  margin-top: 12px;
+}
+
+.film-share-buttons .share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(236, 234, 234, 0.68);
+  border-radius: 12px;
+  color: #25d366;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.film-share-buttons .share-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.08);
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 14px;
+  background: rgba(155, 154, 154, 0.17);
+  color: #00000052;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(155, 154, 154, 0.285);
+  transform: translateY(-3px);
+  color: #00000093;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.film-empty {
+  padding: 40px 20px;
+  font-size: 1.2rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .film-title {
+    font-size: 1.45rem;
+  }
+
+  .film-description {
+    font-size: 0.95rem;
+  }
+
+  .film-nav button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}

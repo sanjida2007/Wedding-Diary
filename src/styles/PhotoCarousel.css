@@ -192,7 +192,7 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 
@@ -249,10 +249,6 @@
   transform: scale(1.08); /* slightly more pronounced hover effect */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
-
-
-
-
 
 /* ===== Modal Row Containers ===== */
 .modal-nav-row,

@@ -1,6 +1,8 @@
 import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import photos from "../data/photos";
+import { FaHeart, FaWhatsapp } from "react-icons/fa";
+
 import "../styles/Gallery.css";
 
 const Gallery = () => {
@@ -155,36 +157,63 @@ const Gallery = () => {
         </div>
 
         {/* Modal Popup */}
+        {/* Modal Popup */}
         {modalOpen && filteredPhotos.length > 0 && (
           <div className="image-modal-backdrop" onClick={closeModal}>
             <div
               className="image-modal-content"
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="modal-close-x" onClick={closeModal}>
+              {/* Close Button */}
+              <button
+                className="modal-close-x"
+                onClick={closeModal}
+                aria-label="Close"
+              >
                 ✕
               </button>
 
+              {/* Full-size Image */}
               <img
                 src={filteredPhotos[activeIndex].imageUrl}
                 alt={filteredPhotos[activeIndex].title}
                 className="modal-preview-image"
               />
 
-              <div className="modal-nav-row">
-                <button onClick={prevImage}>Previous</button>
+              {/* Image Title */}
+              <h3 className="modal-image-title">
+                {filteredPhotos[activeIndex].title}
+              </h3>
 
+              {/* ===== First Row: Prev / Next ===== */}
+              <div className="modal-nav-row">
+                <button onClick={prevImage}>‹ Prev</button>
+                <button onClick={nextImage}>Next ›</button>
+              </div>
+
+              {/* ===== Second Row: Download / WhatsApp ===== */}
+              <div className="modal-action-row">
                 <a
                   href={filteredPhotos[activeIndex].downloadUrl}
                   download
                   className="modal-download-btn"
                 >
-                  Download
+                  ⬇ Download
                 </a>
 
-                <button onClick={nextImage}>Next</button>
+                <a
+                  href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                    filteredPhotos[activeIndex].imageUrl
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="modal-whatsapp-share"
+                >
+                  <FaWhatsapp /> Share
+                </a>
               </div>
 
+              {/* Counter */}
               <div className="carousel-counter">
                 {activeIndex + 1} / {filteredPhotos.length}
               </div>

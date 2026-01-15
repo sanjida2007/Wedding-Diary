@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import photos from "../data/photos";
 import videos from "../data/videos";
 import "../styles/Home.css";
+import { FaHeart, FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import PhotoCarousel from "../components/PhotoCarousel";
 
 const AUTOPLAY_DELAY = 4000;
 
@@ -131,75 +133,8 @@ const Home = () => {
             <h3>📩 Contact</h3>
           </Link>
         </section>
-
-        {/* ===== PHOTO CAROUSEL ===== */}
-        <article className="section-card photo-carousel mb-16">
-          <h2 className="section-title">Featured Photographs</h2>
-
-          <div className="carousel-container">
-            <div
-              className="photo-frame"
-              onMouseEnter={() => (isHovered.current = true)}
-              onMouseLeave={() => (isHovered.current = false)}
-            >
-              <img
-                ref={imageRef}
-                src={photos[photoIndex].imageUrl}
-                alt={photos[photoIndex].title}
-                loading="lazy"
-                className="carousel-image"
-              />
-
-              <div className="photo-overlay">
-                <h3>{photos[photoIndex].title}</h3>
-                <span className="photo-position">
-                  {photoIndex + 1} / {photos.length}
-                </span>
-              </div>
-
-              <a
-                href={photos[photoIndex].downloadUrl}
-                download
-                className="download-btn"
-              >
-                ⬇ Download
-              </a>
-            </div>
-
-            <nav className="carousel-controls">
-              <button
-                onClick={() => {
-                  prevPhoto();
-                  resetAutoplay();
-                }}
-                aria-label="Previous photo"
-              >
-                ‹ Previous
-              </button>
-
-              <div className="autoplay-bar">
-                <div key={photoIndex} className="progress" />
-              </div>
-
-              <button
-                onClick={() => {
-                  nextPhoto();
-                  resetAutoplay();
-                }}
-                aria-label="Next photo"
-              >
-                Next ›
-              </button>
-            </nav>
-          </div>
-          {/* Centered Glass Buttons */}
-          <div className="center-btn">
-            <Link to="/gallery" className="glass-btn">
-              ⬇ View Full Gallery
-            </Link>
-          </div>
-        </article>
-
+        {/* ===== Photo CAROUSEL ===== */}
+        <PhotoCarousel photos={photos} />
         {/* ===== VIDEO CAROUSEL ===== */}
         <article className="section-card video-carousel">
           <h2 className="section-title cinematic-title">

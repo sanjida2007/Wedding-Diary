@@ -200,6 +200,13 @@
   max-height: 600px;
   object-fit: contain;
   border-radius: 16px;
+  
+}/* Modal image title */
+.modal-image-title {
+  margin-top: 12px;
+  font-size: 1.25rem;
+  color: #0f172a;
+  text-align: center;
 }
 
 /* Nav row */
@@ -383,5 +390,109 @@
 @media (max-width: 500px) {
   .quick-nav.about-quick-nav {
     grid-template-columns: 1fr;
+  }
+}
+/* ===== Modal Buttons Styling ===== */
+.modal-nav-row button,
+.modal-download-btn,
+.modal-whatsapp-share {
+  padding: 10px 18px; /* slightly larger for better touch targets */
+  border: none;
+  border-radius: 12px; /* smoother rounded corners */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* more spacing between icon and text */
+  font-size: 1rem; /* readable font size */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-nav-row button
+ {
+  background: #ec4899;
+  color: #ffffff;
+}
+.modal-nav-row button:hover {
+  background: #ffffff;
+  color: #ec4899;
+  transform: scale(1.08); /* slightly more pronounced hover effect */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-download-btn
+{
+  background: #000000;
+  color: #fff;
+}
+.modal-download-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: scale(1.08); /* slightly more pronounced hover effect */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-whatsapp-share {
+  background: #25D366 ;
+  color: #fff;
+}
+.modal-whatsapp-share:hover {
+  background: rgba(255,255,255,0.7);;
+  color: #25D366;
+  transform: scale(1.08); /* slightly more pronounced hover effect */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* ===== Modal Row Containers ===== */
+.modal-nav-row,
+.modal-action-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap; /* responsive wrap on smaller screens */
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .modal-nav-row,
+  .modal-action-row {
+    gap: 12px;
+  }
+
+  .modal-nav-row button,
+  .modal-download-btn,
+  .modal-whatsapp-share {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+
+  .modal-preview-image {
+    max-height: 90vh; /* ensures image fits on tablet screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .modal-nav-row,
+  .modal-action-row {
+    gap: 8px;
+  }
+
+  .modal-nav-row button,
+  .modal-download-btn,
+  .modal-whatsapp-share {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .modal-preview-image {
+    max-height: 90vh; /* keeps image visible above buttons */
   }
 }

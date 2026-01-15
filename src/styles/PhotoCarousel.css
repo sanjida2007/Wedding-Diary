@@ -1,0 +1,303 @@
+/* ===== Carousel Container ===== */
+.carousel-container {
+  padding: 10px;
+  position: relative;
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  cursor: pointer;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out, transform 1s ease;
+}
+
+.photo-frame:hover .carousel-image {
+  transform: scale(1.03);
+}
+
+/* Carousel controls */
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.carousel-controls button {
+  background: #ec4899;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-controls button:hover {
+  background: #db2777;
+  transform: scale(1.05);
+}
+
+/* Download button overlay */
+.download-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn:hover {
+  background: rgba(0,0,0,0.65);
+  transform: scale(1.05);
+}
+
+/* Like button overlay */
+.like-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.6);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #ec4899;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.like-btn:hover {
+  transform: scale(1.15);
+  background: rgba(255,255,255,0.85);
+}
+
+.like-btn.liked {
+  color: #e11d48;
+}
+
+/* Share buttons overlay */
+.share-buttons {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.share-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.7);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #25D366;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.share-buttons a:hover {
+  background: rgba(255,255,255,0.95);
+  transform: scale(1.1);
+}
+
+/* ===== Modal Overlay ===== */
+.photo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* Modal content */
+.photo-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popupFade 0.3s ease;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+/* Modal image */
+.photo-modal-content img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* Modal title */
+.modal-image-title {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #111827;
+}
+
+/* Close button */
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.2);
+}
+
+/* ===== Modal Buttons Rows ===== */
+.modal-nav-row,
+.modal-action-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+
+/* ===== Modal Buttons Styling ===== */
+.modal-nav-row button,
+.modal-download-btn,
+.modal-whatsapp-share {
+  padding: 10px 18px; /* slightly larger for better touch targets */
+  border: none;
+  border-radius: 12px; /* smoother rounded corners */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* more spacing between icon and text */
+  font-size: 1rem; /* readable font size */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-nav-row button
+ {
+  background: #ec4899;
+  color: #ffffff;
+}
+.modal-nav-row button:hover {
+  background: #ffffff;
+  color: #ec4899;
+  transform: scale(1.08); /* slightly more pronounced hover effect */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-download-btn
+{
+  background: #000000;
+  color: #fff;
+}
+.modal-download-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: scale(1.08); /* slightly more pronounced hover effect */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-whatsapp-share {
+  background: #25D366 ;
+  color: #fff;
+}
+.modal-whatsapp-share:hover {
+  background: rgba(255,255,255,0.7);;
+  color: #25D366;
+  transform: scale(1.08); /* slightly more pronounced hover effect */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* ===== Modal Row Containers ===== */
+.modal-nav-row,
+.modal-action-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap; /* responsive wrap on smaller screens */
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .modal-nav-row,
+  .modal-action-row {
+    gap: 12px;
+  }
+
+  .modal-nav-row button,
+  .modal-download-btn,
+  .modal-whatsapp-share {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+
+  .modal-preview-image {
+    max-height: 90vh; /* ensures image fits on tablet screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .modal-nav-row,
+  .modal-action-row {
+    gap: 8px;
+  }
+
+  .modal-nav-row button,
+  .modal-download-btn,
+  .modal-whatsapp-share {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .modal-preview-image {
+    max-height: 90vh; /* keeps image visible above buttons */
+  }
+}

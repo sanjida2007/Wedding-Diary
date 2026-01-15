@@ -219,3 +219,73 @@
     transform: scale(1);
   }
 }
+
+
+/* ===== QUICK NAVIGATION ===== */
+
+/* Quick Navigation wrapper */
+.quick-nav-wrapper {
+  margin-top: 40px; /* space after contact-card */
+  padding: 20px 0;
+}
+
+/* Message above cards */
+.quick-nav-message {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 24px; /* space between message and cards */
+}
+
+/* Quick Navigation cards */
+.quick-nav.contact-quick-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-card {
+  background: rgba(255, 255, 255, 0.85); /* glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 18px 12px;
+  border-radius: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.nav-card p {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.nav-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .quick-nav.contact-quick-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .quick-nav.contact-quick-nav {
+    grid-template-columns: 1fr;
+  }
+}

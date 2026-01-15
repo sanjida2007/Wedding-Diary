@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import videos from "../data/videos";
 import VideoCard from "../components/VideoCard";
 import { FaVideo } from "react-icons/fa";
+import { Link } from "react-router-dom"; // add this for navigation links
 import "../styles/Videos.css";
 
 const Videos = () => {
@@ -10,6 +11,7 @@ const Videos = () => {
 
   return (
     <section className="videos-section">
+      {/* ===== ORIGINAL VIDEOS HEADER ===== */}
       <header className="videos-header">
         <h2 className="videos-title">
           <FaVideo className="videos-header-icon" aria-hidden="true" />
@@ -38,6 +40,36 @@ const Videos = () => {
           <p>No portfolio videos are currently available.</p>
         </div>
       )}
+
+      
+        {/* ===== QUICK NAVIGATION AFTER ABOUT-CONTAINER ===== */}
+        <div className="quick-nav-wrapper">
+          <div className="quick-nav-message">
+            Explore more sections of our wedding celebration:
+          </div>
+
+          <section className="quick-nav about-quick-nav">
+            <Link to="/" className="nav-card">
+              <h3>🏠 Home</h3>
+              <p>Back to Home</p>
+            </Link>
+
+            <Link to="/gallery" className="nav-card">
+              <h3>📸 Gallery</h3>
+              <p>View our photos</p>
+            </Link>
+
+            <Link to="/about" className="nav-card">
+              <h3>💍 Our Story</h3>
+              <p>Read about us</p>
+            </Link>
+
+            <Link to="/contact" className="nav-card">
+              <h3>📩 Contact</h3>
+              <p>Send your wishes</p>
+            </Link>
+          </section>
+        </div>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import photos from "../data/photos";
 import "../styles/Gallery.css";
 
@@ -122,6 +123,35 @@ const Gallery = () => {
         {/* End of Gallery Message */}
         <div className="gallery-end-message">
           That's all the photos for now! 💖
+        </div>
+
+        {/* ===== QUICK NAVIGATION AFTER ABOUT-CONTAINER ===== */}
+        <div className="quick-nav-wrapper">
+          <div className="quick-nav-message">
+            Explore more sections of our wedding celebration:
+          </div>
+
+          <section className="quick-nav about-quick-nav">
+            <Link to="/" className="nav-card">
+              <h3>🏠 Home</h3>
+              <p>Back to Home</p>
+            </Link>
+
+            <Link to="/videos" className="nav-card">
+              <h3>🎬 Videos</h3>
+              <p>Watch cinematic films</p>
+            </Link>
+
+            <Link to="/about" className="nav-card">
+              <h3>💍 Our Story</h3>
+              <p>Read about us</p>
+            </Link>
+
+            <Link to="/contact" className="nav-card">
+              <h3>📩 Contact</h3>
+              <p>Send your wishes</p>
+            </Link>
+          </section>
         </div>
 
         {/* Modal Popup */}

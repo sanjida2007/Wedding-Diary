@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import photos from "../data/photos";
 import videos from "../data/videos";
 import "../styles/Home.css";
-import "../../src/App.css";
 
 const AUTOPLAY_DELAY = 4000;
 
@@ -16,23 +16,17 @@ const Home = () => {
 
   /* ===== PHOTO NAVIGATION ===== */
 
-  const nextPhoto = () =>
-    setPhotoIndex((prev) => (prev + 1) % photos.length);
+  const nextPhoto = () => setPhotoIndex((prev) => (prev + 1) % photos.length);
 
   const prevPhoto = () =>
-    setPhotoIndex((prev) =>
-      prev === 0 ? photos.length - 1 : prev - 1
-    );
+    setPhotoIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
 
   /* ===== VIDEO NAVIGATION ===== */
 
-  const nextVideo = () =>
-    setVideoIndex((prev) => (prev + 1) % videos.length);
+  const nextVideo = () => setVideoIndex((prev) => (prev + 1) % videos.length);
 
   const prevVideo = () =>
-    setVideoIndex((prev) =>
-      prev === 0 ? videos.length - 1 : prev - 1
-    );
+    setVideoIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
 
   /* ===== AUTOPLAY LOGIC ===== */
 
@@ -107,7 +101,6 @@ const Home = () => {
   }
   const [isPlaying, setIsPlaying] = useState(true);
 
-
   return (
     <main className="pt-20 min-h-screen bg-gray-50">
       <section className="max-w-6xl mx-auto px-6 py-14">
@@ -115,15 +108,33 @@ const Home = () => {
         <header className="hero-intro">
           <h1>Our Wedding Journey</h1>
           <p>
-            A digital collection preserving the most beautiful moments of our celebration
+            A digital collection preserving the most beautiful moments of our
+            celebration
           </p>
         </header>
 
+        {/* ===== QUICK NAVIGATION ===== */}
+        <section className="quick-nav">
+          <Link to="/gallery" className="nav-card">
+            <h3>📸 Gallery</h3>
+          </Link>
+
+          <Link to="/videos" className="nav-card">
+            <h3>🎬 Videos</h3>
+          </Link>
+
+          <Link to="/about" className="nav-card">
+            <h3>💍 Story </h3>
+          </Link>
+
+          <Link to="/contact" className="nav-card">
+            <h3>📩 Contact</h3>
+          </Link>
+        </section>
+
         {/* ===== PHOTO CAROUSEL ===== */}
         <article className="section-card photo-carousel mb-16">
-          <h2 className="section-title">
-            Featured Photographs
-          </h2>
+          <h2 className="section-title">Featured Photographs</h2>
 
           <div className="carousel-container">
             <div
@@ -181,10 +192,15 @@ const Home = () => {
               </button>
             </nav>
           </div>
+{/* Centered Glass Buttons */}
+<div className="center-btn">
+  <Link to="/gallery" className="glass-btn">
+    ⬇ View Full Gallery
+  </Link>
+</div>
         </article>
 
         {/* ===== VIDEO CAROUSEL ===== */}
-                {/* ===== VIDEO CAROUSEL ===== */}
         <article className="section-card video-carousel">
           <h2 className="section-title cinematic-title">
             Wedding Cinematic Films
@@ -203,9 +219,7 @@ const Home = () => {
                   />
                 </div>
 
-                <h3 className="film-title">
-                  {videos[videoIndex].title}
-                </h3>
+                <h3 className="film-title">{videos[videoIndex].title}</h3>
 
                 <p className="film-description">
                   {videos[videoIndex].description ||
@@ -243,6 +257,11 @@ const Home = () => {
               <p>Our wedding films will be uploaded shortly</p>
             </div>
           )}
+<div className="center-btn">
+  <Link to="/videos" className="glass-btn">
+    ⬇ Watch All Films
+  </Link>
+</div>
         </article>
       </section>
     </main>

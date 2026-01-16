@@ -2,33 +2,65 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/About.css";
 
-const WEDDING_DATE = new Date("2025-12-05T00:00:00");
+/* Timezone-safe wedding date */
+const WEDDING_DATE = new Date(2025, 11, 5, 0, 0, 0);
 
 const About = () => {
+  const [anniversary, setAnniversary] = useState({
+    years: 0,
+    months: 0,
+    days: 0,
+  });
   const [expanded, setExpanded] = useState(false);
-  const [daysLeft, setDaysLeft] = useState(null);
 
-  /* ===== Countdown Logic ===== */
+  /* ===== Anniversary Counter ===== */
   useEffect(() => {
-    const diff = WEDDING_DATE - new Date();
-    if (diff > 0) {
-      setDaysLeft(Math.ceil(diff / (1000 * 60 * 60 * 24)));
-    }
+    const updateAnniversary = () => {
+      const now = new Date();
+      let years = now.getFullYear() - WEDDING_DATE.getFullYear();
+      let months = now.getMonth() - WEDDING_DATE.getMonth();
+      let days = now.getDate() - WEDDING_DATE.getDate();
+
+      if (days < 0) {
+        months -= 1;
+        const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += lastMonth.getDate();
+      }
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      setAnniversary({ years, months, days });
+    };
+
+    updateAnniversary();
+    const timer = setInterval(updateAnniversary, 60 * 1000); // refresh every minute
+    return () => clearInterval(timer);
   }, []);
+
+  /* ===== Animated Number Flip (simple CSS) ===== */
+  const renderFlip = (num, label) => (
+    <div className="flip-number">
+      <span className="flip-value">{num}</span>
+      <span className="flip-label">{label}</span>
+    </div>
+  );
 
   return (
     <section className="about-page" aria-labelledby="about-heading">
       <div>
         <div className="about-container">
-          {/* ===== TEXT SECTION ===== */}
+          {/* ===== TEXT ===== */}
           <div className="about-content">
             <h1 id="about-heading">Our Wedding Story</h1>
 
-            {daysLeft && (
-              <div className="wedding-countdown">
-                💍 {daysLeft} days to forever
-              </div>
-            )}
+            {/* ===== Anniversary Counter ===== */}
+            <div className="anniversary-counter">
+              {renderFlip(anniversary.years, "Years")}
+              {renderFlip(anniversary.months, "Months")}
+              {renderFlip(anniversary.days, "Days")}
+            </div>
 
             <p className="about-intro">
               Our wedding marked the start of a beautiful journey together. We
@@ -37,10 +69,18 @@ const About = () => {
             </p>
 
             <div className="about-details">
-              <p><strong>Groom:</strong> Md Aminul Islam Sayem</p>
-              <p><strong>Bride:</strong> Mashruba Akter Sumona</p>
-              <p><strong>Wedding Date:</strong> 05 December 2025</p>
-              <p><strong>Venue:</strong> Uttara, Dhaka, Bangladesh</p>
+              <p>
+                <strong>Groom:</strong> Md Aminul Islam Sayem
+              </p>
+              <p>
+                <strong>Bride:</strong> Mashruba Akter Sumona
+              </p>
+              <p>
+                <strong>Wedding Date:</strong> 05 December 2025
+              </p>
+              <p>
+                <strong>Venue:</strong> Uttara, Dhaka, Bangladesh
+              </p>
             </div>
 
             <p className="about-message">
@@ -63,7 +103,7 @@ const About = () => {
             </button>
           </div>
 
-          {/* ===== IMAGE SECTION ===== */}
+          {/* ===== IMAGE ===== */}
           <div className="about-image">
             <img
               src="https://drive.google.com/thumbnail?id=1DRzXkvZtDUl_pmGmzE4JCeiLWvhG1-eV&sz=w1000"
@@ -73,7 +113,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* ===== QUICK NAVIGATION (UNCHANGED) ===== */}
+        {/* ===== QUICK NAVIGATION ===== */}
         <div className="quick-nav-wrapper">
           <div className="quick-nav-message">
             Explore more sections of our wedding celebration:

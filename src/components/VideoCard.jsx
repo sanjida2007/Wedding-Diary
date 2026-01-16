@@ -20,10 +20,14 @@ const VideoCard = ({ video }) => {
         damping: 12
       }}
     >
+      {/* ===== Video Container ===== */}
       <div className="video-card-media">
-        <DriveVideoPlayer url={videoUrl} />
+        <div className="video-responsive-wrapper">
+          <DriveVideoPlayer url={videoUrl} />
+        </div>
       </div>
 
+      {/* ===== Info Section ===== */}
       <div className="video-card-info">
         <header className="video-card-header">
           <FaVideo className="video-card-icon" aria-hidden="true" />

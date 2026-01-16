@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaHeart, FaBars, FaTimes } from "react-icons/fa";
 import "../styles/Navbar.css";
+import InstallApp from "../components/InstallApp";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -59,6 +60,10 @@ const Navbar = () => {
         <NavLink to="/videos" className={getLinkClasses} onClick={closeMenu}>Videos</NavLink>
         <NavLink to="/about" className={getLinkClasses} onClick={closeMenu}>About</NavLink>
         <NavLink to="/contact" className={getLinkClasses} onClick={closeMenu}>Contact Us</NavLink>
+          {/* ✅ INSTALL BUTTON */}
+  <div className="mobile-install-wrapper">
+    <InstallApp variant="menu" />
+  </div>
       </aside>
     </header>
   );

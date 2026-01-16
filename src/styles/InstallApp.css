@@ -1,0 +1,165 @@
+/* ===== INSTALL BAR / BUTTON ===== */
+.install-position {
+  position: fixed; 
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 420px;
+  z-index: 9999;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 12px 30px rgba(236,72,153,0.25), 0 6px 20px rgba(244,114,182,0.2);
+}
+
+.install-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.install-text span {
+  font-size: 2rem;
+  animation: pulseIcon 1.5s infinite alternate;
+}
+
+.install-text strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.install-text small {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.install-btn {
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(236,72,153,0.3), 0 4px 12px rgba(244,114,182,0.2);
+}
+
+.install-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(236,72,153,0.5), 0 6px 20px rgba(244,114,182,0.35);
+}
+
+/* ===== POPUP OVERLAY ===== */
+.install-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* ===== POPUP CARD ===== */
+.install-popup {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 28px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 15px 50px rgba(236,72,153,0.25), 0 8px 30px rgba(244,114,182,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.install-popup h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111827;
+}
+
+.install-popup p {
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* Buttons inside popup */
+.popup-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.popup-install-btn {
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  border: none;
+  border-radius: 14px;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.popup-install-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(236,72,153,0.35), 0 6px 18px rgba(244,114,182,0.25);
+}
+
+.popup-cancel-btn {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 20px;
+  color: #374151;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.popup-cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+/* ICON PULSE */
+@keyframes pulseIcon {
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.1) translateY(-2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* ===== MOBILE MENU INSTALL BUTTON ===== */
+.menu-install-btn {
+  margin-top: 18px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(236,72,153,0.25), 0 4px 12px rgba(244,114,182,0.2);
+}
+
+.menu-install-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(236,72,153,0.45), 0 6px 20px rgba(244,114,182,0.35);
+}

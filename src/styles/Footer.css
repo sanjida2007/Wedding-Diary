@@ -1,105 +1,164 @@
-/* ===== Premium Professional Footer ===== */
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
+/* ===== Variables ===== */
 :root {
-  --footer-bg: #020617;
+  --footer-bg: rgba(2, 6, 23, 0.98);
   --footer-accent: #ec4899;
   --footer-text: #e2e8f0;
   --footer-muted: #94a3b8;
+  --divider-gradient: linear-gradient(90deg, #ec4899, #f472b6, #fcd34d);
+  --footer-padding-vertical: 64px;
+  --footer-padding-horizontal: 32px;
+  --footer-gap: 24px;
 }
 
-/* Main Footer */
+/* ===== Main Footer ===== */
 .footer {
   background-color: var(--footer-bg);
+  backdrop-filter: blur(14px);
   color: var(--footer-text);
-  margin-top: 60px;
-  padding: 48px 24px;
+  margin-top: 80px;
+  padding: var(--footer-padding-vertical) var(--footer-padding-horizontal);
   text-align: center;
   font-family: "Inter", sans-serif;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -12px 50px rgba(236,72,153,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--footer-gap);
 }
 
 /* Container */
 .footer-container {
   max-width: 1100px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--footer-gap);
 }
 
 /* Branding Area */
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 14px;
 }
 
 .footer-icon {
-  font-size: 24px;
+  font-size: 28px;
   color: var(--footer-accent);
+  transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
 }
 
 .footer-heading {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 800;
   margin: 0;
   letter-spacing: 0.6px;
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(236,72,153,0.25);
+  transition: transform 0.3s ease;
+}
+
+.footer-heading:hover {
+  transform: scale(1.05);
 }
 
 /* Main Text */
 .footer-text {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--footer-muted);
   max-width: 720px;
-  line-height: 1.8;
+  line-height: 1.85;
+  transition: all 0.3s ease;
 }
 
-/* Divider Line */
+.footer-text:hover {
+  color: #f472b6;
+  transform: translateY(-2px);
+}
+
+/* Animated Gradient Divider */
 .footer-divider {
-  width: 80px;
-  height: 3px;
-  background-color: var(--footer-accent);
-  margin: 28px 0;
-  border-radius: 10px;
+  width: 120px;
+  height: 4px;
+  border-radius: 12px;
+  background: var(--divider-gradient);
+  background-size: 200% 100%;
+  animation: gradientShift 3s linear infinite;
+
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
 }
 
 /* Copyright Text */
 .footer-copy {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--footer-muted);
   letter-spacing: 0.4px;
   margin: 0;
+  transition: color 0.3s ease;
 }
 
-/* ===== Responsive Realism ===== */
+.footer-copy:hover {
+  color: #f472b6;
+}
+
+/* Mobile Install Button Wrapper */
+.mobile-install-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  :root {
+    --footer-padding-vertical: 56px;
+    --footer-padding-horizontal: 28px;
+    --footer-gap: 20px;
+  }
+
+  .footer-heading { font-size: 24px; }
+  .footer-text { font-size: 15px; line-height: 1.8; }
+  .footer-copy { font-size: 13px; }
+  .footer-divider { width: 100px; }
+}
 
 @media (max-width: 768px) {
-  .footer {
-    padding: 32px 14px;
+  :root {
+    --footer-padding-vertical: 48px;
+    --footer-padding-horizontal: 24px;
+    --footer-gap: 18px;
   }
 
-  .footer-heading {
-    font-size: 18px;
-  }
-
-  .footer-text {
-    font-size: 13.8px;
-  }
-
-  .footer-copy {
-    font-size: 12.5px;
-  }
+  .footer-heading { font-size: 22px; }
+  .footer-text { font-size: 14.5px; }
+  .footer-copy { font-size: 12.5px; }
 }
 
 @media (max-width: 480px) {
-  .footer-text {
-    font-size: 13.2px;
-    padding: 0 10px;
+  :root {
+    --footer-padding-vertical: 40px;
+    --footer-padding-horizontal: 16px;
+    --footer-gap: 16px;
   }
 
-  .footer-heading {
-    font-size: 16.5px;
-  }
+  .footer-heading { font-size: 20px; }
+  .footer-text { font-size: 14px; }
+  .footer-copy { font-size: 12px; }
 }

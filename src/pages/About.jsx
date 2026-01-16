@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/About.css";
 
+const WEDDING_DATE = new Date("2025-12-05T00:00:00");
+
 const About = () => {
+  const [expanded, setExpanded] = useState(false);
+  const [daysLeft, setDaysLeft] = useState(null);
+
+  /* ===== Countdown Logic ===== */
+  useEffect(() => {
+    const diff = WEDDING_DATE - new Date();
+    if (diff > 0) {
+      setDaysLeft(Math.ceil(diff / (1000 * 60 * 60 * 24)));
+    }
+  }, []);
+
   return (
     <section className="about-page" aria-labelledby="about-heading">
       <div>
         <div className="about-container">
-          {/* Text Section */}
+          {/* ===== TEXT SECTION ===== */}
           <div className="about-content">
             <h1 id="about-heading">Our Wedding Story</h1>
+
+            {daysLeft && (
+              <div className="wedding-countdown">
+                💍 {daysLeft} days to forever
+              </div>
+            )}
+
             <p className="about-intro">
               Our wedding marked the start of a beautiful journey together. We
               are truly grateful for the love, prayers, and support from all who
@@ -17,28 +37,33 @@ const About = () => {
             </p>
 
             <div className="about-details">
-              <p>
-                <strong>Groom:</strong> Md Aminul Islam Sayem
-              </p>
-              <p>
-                <strong>Bride:</strong> Mashruba Akter Sumona
-              </p>
-              <p>
-                <strong>Wedding Date:</strong> 05 December 2025
-              </p>
-              <p>
-                <strong>Venue:</strong> Uttara, Dhaka, Bangladesh
-              </p>
+              <p><strong>Groom:</strong> Md Aminul Islam Sayem</p>
+              <p><strong>Bride:</strong> Mashruba Akter Sumona</p>
+              <p><strong>Wedding Date:</strong> 05 December 2025</p>
+              <p><strong>Venue:</strong> Uttara, Dhaka, Bangladesh</p>
             </div>
 
             <p className="about-message">
-              Our marriage celebrates love, friendship, and togetherness. Thank
-              you for keeping us in your thoughts and prayers, and for sharing
-              in our joy 💖
+              Our marriage celebrates love, friendship, and togetherness.
             </p>
+
+            {expanded && (
+              <p className="about-message fade-in">
+                What began as a simple friendship slowly turned into a bond of
+                trust, understanding, and love. This wedding is not just a
+                ceremony—it is the promise of a lifetime together 💖
+              </p>
+            )}
+
+            <button
+              className="read-more-btn"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded ? "Show Less" : "Read More"}
+            </button>
           </div>
 
-          {/* Image Section */}
+          {/* ===== IMAGE SECTION ===== */}
           <div className="about-image">
             <img
               src="https://drive.google.com/thumbnail?id=1DRzXkvZtDUl_pmGmzE4JCeiLWvhG1-eV&sz=w1000"
@@ -48,7 +73,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* ===== QUICK NAVIGATION AFTER ABOUT-CONTAINER ===== */}
+        {/* ===== QUICK NAVIGATION (UNCHANGED) ===== */}
         <div className="quick-nav-wrapper">
           <div className="quick-nav-message">
             Explore more sections of our wedding celebration:

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaTimes, FaLink } from "react-icons/fa";
 import "../styles/VideoCarousel.css";
 
 const AUTOPLAY_DELAY = 5000;
@@ -7,6 +7,7 @@ const AUTOPLAY_DELAY = 5000;
 const VideoCarousel = ({ videos }) => {
   const [videoIndex, setVideoIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalVideoIndex, setModalVideoIndex] = useState(0);
 
   const autoplayRef = useRef(null);
   const isHovered = useRef(false);
@@ -33,76 +34,99 @@ const VideoCarousel = ({ videos }) => {
     return () => clearInterval(autoplayRef.current);
   }, [videos.length, nextVideo]);
 
+  const openModal = (index) => {
+    setModalVideoIndex(index);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => setModalOpen(false);
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(videos[modalVideoIndex].videoUrl);
+    alert("Link copied to clipboard!");
+  };
+
   if (!videos.length) {
     return (
-      <div className="film-empty">
+      <section className="film-empty">
         <p>Our wedding films will be uploaded shortly</p>
-      </div>
+      </section>
     );
   }
 
   return (
-    <article className="section-card video-carousel">
-      <h2 className="section-title cinematic-title">Wedding Cinematic Films</h2>
-
+    <section className="video-carousel-section">
       <div
         className="carousel-container"
         onMouseEnter={() => (isHovered.current = true)}
         onMouseLeave={() => (isHovered.current = false)}
       >
-        <div className="video-wrapper">
-          <div className="video-frame">
+        <article className="video-card">
+          <div className="video-frame" onClick={() => openModal(videoIndex)}>
             <iframe
               src={videos[videoIndex].videoUrl}
               title={videos[videoIndex].title}
-              className="w-full rounded-3xl shadow-md"
+              className="carousel-iframe"
               allowFullScreen
               loading="lazy"
             />
+            <div className="video-overlay">
+              <span className="play-button">▶</span>
+            </div>
           </div>
 
-          <h3 className="film-title">{videos[videoIndex].title}</h3>
-          <p className="film-description">
-            {videos[videoIndex].description ||
-              "Relive the atmosphere and emotion through this carefully crafted wedding film."}
-          </p>
-
-          {/* ===== Navigation ===== */}
-          <nav className="carousel-controls film-nav">
+          <nav className="carousel-controls">
             <button onClick={prevVideo} aria-label="Previous video">
-              ‹ Previous Film
+              ‹ Prev
             </button>
             <button onClick={nextVideo} aria-label="Next video">
-              Next Film ›
+              Next ›
             </button>
           </nav>
+        </article>
+      </div>
 
-          <footer className="carousel-counter">
-            {videoIndex + 1} of {videos.length}
-          </footer>
-
-          {/* ===== Optional Share ===== */}
-          <div className="film-share-buttons">
-            <a
-              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                videos[videoIndex].videoUrl
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="share-btn"
+      {/* Modal */}
+      {modalOpen && (
+        <div className="video-modal" onClick={closeModal}>
+          <div
+            className="video-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="modal-close"
+              onClick={closeModal}
+              aria-label="Close"
             >
-              <FaWhatsapp /> Share
-            </a>
+              <FaTimes size={24} />
+            </button>
+
+            <iframe
+              src={videos[modalVideoIndex].videoUrl}
+              title={videos[modalVideoIndex].title}
+              className="modal-video"
+              allowFullScreen
+            />
+
+            <div className="modal-share-buttons">
+              <a
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                  videos[modalVideoIndex].videoUrl
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="share-btn"
+              >
+                <FaWhatsapp /> WhatsApp
+              </a>
+              <button onClick={copyLink} className="share-btn">
+                <FaLink /> Copy Link
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="center-btn">
-        <a href="/videos" className="glass-btn-full">
-          ⬇ Watch All Films
-        </a>
-      </div>
-    </article>
+      )}
+    </section>
   );
 };
 

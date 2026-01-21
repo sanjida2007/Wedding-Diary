@@ -88,7 +88,7 @@ const PhotoCarousel = ({ photos }) => {
               </span>
             </div>
 
-            {/* Download */}
+            {/* Download 
             <a
               href={photos[photoIndex].downloadUrl}
               download
@@ -96,6 +96,8 @@ const PhotoCarousel = ({ photos }) => {
             >
               ⬇ Download
             </a>
+
+            */}
 
             {/* Favorite / Like */}
             <button
@@ -108,7 +110,7 @@ const PhotoCarousel = ({ photos }) => {
               <FaHeart /> {liked ? "Liked" : "Like"}
             </button>
 
-            {/* Social Share */}
+            {/* Social Share 
             <div className="share-buttons">
               <a
                 href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
@@ -121,6 +123,7 @@ const PhotoCarousel = ({ photos }) => {
                 <FaWhatsapp /> Share
               </a>
             </div>
+            */}
           </div>
 
           {/* Carousel controls */}

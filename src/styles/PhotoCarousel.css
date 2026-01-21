@@ -249,6 +249,10 @@
   transform: scale(1.08); /* slightly more pronounced hover effect */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
+.center-btn {
+  display: flex;
+  justify-content: center;
+}
 
 .glass-btn-photo {
   display: inline-flex;

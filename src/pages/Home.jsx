@@ -6,7 +6,6 @@ import "../styles/Home.css";
 import PhotoCarousel from "../components/PhotoCarousel";
 import VideoCarousel from "../components/VideoCarousel";
 import SectionPreview from "../components/SectionPreview";
-import InstallApp from "../components/InstallApp";
 
 
 const Home = () => {

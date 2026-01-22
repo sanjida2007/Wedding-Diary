@@ -1,5 +1,5 @@
-import thumb1 from "../assets/Cinema.png";
-import thumb2 from "../assets/Trailer.png";
+import thumb1 from "../assets/Trailer.png";
+import thumb2 from "../assets/Cinema.png";
 
 const videos = [
   {

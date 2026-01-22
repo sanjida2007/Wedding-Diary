@@ -39,20 +39,65 @@
 
 .video-modal-close {
   position: absolute;
-  top: 12px;
-  left: 18px;
-  font-size: 2.2rem;
+  top: 14px;
+  right: 18px;
+
+  width: 10px;
+  height: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.6rem;
+  font-weight: 300;
   line-height: 1;
-  border: none;
-  background: transparent;
-  color: #98aaff;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  background: rgba(20, 20, 20, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
   cursor: pointer;
-  transition: color 0.27s;
   z-index: 9;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 0 rgba(255, 255, 255, 0.2);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
-.video-modal-close:hover, .video-modal-close:focus {
-  color: #fff;
+
+/* Hover magic */
+.video-modal-close:hover {
+  background: rgba(255, 60, 60, 0.75);
+  transform: rotate(90deg) scale(1.08);
+
+  box-shadow:
+    0 12px 32px rgba(255, 60, 60, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
+
+/* Click feedback */
+.video-modal-close:active {
+  transform: scale(0.92);
+}
+
+/* Keyboard accessibility */
+.video-modal-close:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255, 60, 60, 0.45),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
 
 /* Video */
 .modal-video-frame {

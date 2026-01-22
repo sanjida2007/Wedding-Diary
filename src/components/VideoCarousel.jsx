@@ -4,13 +4,6 @@ import { FiCopy } from "react-icons/fi";
 import "../styles/VideoCarousel.css";
 import "../styles/VideoModal.css";
 
-/*
-  Robust thumbnail loader:
-  - tries the supplied thumbnail URL
-  - if that fails and it's a Drive link, attempts uc?export=download
-  - falls back to YouTube poster if possible
-  - falls back to inline placeholder
-*/
 
 const AUTOPLAY_DELAY = 5000;
 

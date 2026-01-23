@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiCopy } from "react-icons/fi";
-import "../styles/VideoCarousel.css";
-import "../styles/VideoModal.css";
+import "../../styles/VideoCarousel.css";
+import "../../styles/VideoModal.css";
 
 
 const AUTOPLAY_DELAY = 5000;

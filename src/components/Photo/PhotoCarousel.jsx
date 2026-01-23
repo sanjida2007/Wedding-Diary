@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FaHeart, FaWhatsapp } from "react-icons/fa";
-import "../styles/PhotoCarousel.css";
+import "../../styles/PhotoCarousel.css";
 
 const AUTOPLAY_DELAY = 4000;
 

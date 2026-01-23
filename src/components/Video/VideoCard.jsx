@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { FaVideo } from "react-icons/fa";
 import DriveVideoPlayer from "./DriveVideoPlayer";
-import "../styles/VideoCard.css";
+import "../../styles/VideoCard.css";
 
 const VideoCard = ({ video }) => {
   const { title, videoUrl } = video;

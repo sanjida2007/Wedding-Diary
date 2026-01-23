@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import videos from "../data/videos";
-import VideoCard from "../components/VideoCard";
+import VideoCard from "../components/Video/VideoCard";
 import { FaVideo } from "react-icons/fa";
 import { Link } from "react-router-dom"; 
 import "../styles/Videos.css";

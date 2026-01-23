@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import photos from "../data/photos";
 import videos from "../data/videos";
 import "../styles/Home.css";
-import PhotoCarousel from "../components/PhotoCarousel";
-import VideoCarousel from "../components/VideoCarousel";
+import PhotoCarousel from "../components/Photo/PhotoCarousel";
+import VideoCarousel from "../components/Video/VideoCarousel";
 import SectionPreview from "../components/SectionPreview";
 
 

@@ -496,3 +496,43 @@
     max-height: 90vh; /* keeps image visible above buttons */
   }
 }
+.gallery-section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 1rem 0 1rem;
+  color: #222;
+  position: relative;
+  display: block;
+}
+
+/* decorative underline */
+.gallery-section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin: 14px auto 0;
+  background: linear-gradient(
+    90deg,
+    #ec4899,
+    #f19fc8,
+    #ec4899
+  );
+  border-radius: 2px;
+}
+.gallery-section-title {
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

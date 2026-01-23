@@ -59,7 +59,7 @@ const Gallery = () => {
           onOpen={openModal}
         />
 
-        <h2 className="gallery-section-title">Raw Photos</h2>
+        <h2 className="gallery-section-title">All Photos</h2>
         <GalleryGrid
           photos={filteredRawPhotos}
           type="raw"

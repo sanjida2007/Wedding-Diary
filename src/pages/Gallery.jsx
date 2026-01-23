@@ -1,28 +1,55 @@
-import React, { useState, useMemo, useEffect, useCallback } from "react";
+import React, {
+  useState,
+  useMemo,
+  useEffect,
+  useCallback,
+} from "react";
 import { Link } from "react-router-dom";
 import photos from "../data/photos";
-import { FaHeart, FaWhatsapp } from "react-icons/fa";
+import rawphotos from "../data/rawphotos";
+import { FaWhatsapp } from "react-icons/fa";
 
 import "../styles/Gallery.css";
 
 const Gallery = () => {
   const [search] = useState("");
+
   const [modalOpen, setModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Carousel states
+  // which gallery is active
+  const [currentGallery, setCurrentGallery] = useState("photos");
+
+  // carousel
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [randomCarouselPhotos, setRandomCarouselPhotos] = useState([]);
 
-  // Prepare filtered photos for grid
+  // ======================
+  // FILTERED GALLERIES
+  // ======================
   const filteredPhotos = useMemo(() => {
     return photos.filter((p) =>
       p.title.toLowerCase().includes(search.toLowerCase())
     );
   }, [search]);
 
-  // Open modal with correct photo index from filtered set
-  const openModal = useCallback((index) => {
+  const filteredRawPhotos = useMemo(() => {
+    return rawphotos.filter((p) =>
+      p.title.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search]);
+
+  // decide which gallery modal uses
+  const activePhotos =
+    currentGallery === "photos"
+      ? filteredPhotos
+      : filteredRawPhotos;
+
+  // ======================
+  // MODAL CONTROLS
+  // ======================
+  const openModal = useCallback((index, type = "photos") => {
+    setCurrentGallery(type);
     setActiveIndex(index);
     setModalOpen(true);
   }, []);
@@ -31,25 +58,26 @@ const Gallery = () => {
 
   const nextImage = useCallback(() => {
     setActiveIndex((prev) =>
-      prev === filteredPhotos.length - 1 ? 0 : prev + 1
+      prev === activePhotos.length - 1 ? 0 : prev + 1
     );
-  }, [filteredPhotos]);
+  }, [activePhotos]);
 
   const prevImage = useCallback(() => {
     setActiveIndex((prev) =>
-      prev === 0 ? filteredPhotos.length - 1 : prev - 1
+      prev === 0 ? activePhotos.length - 1 : prev - 1
     );
-  }, [filteredPhotos]);
+  }, [activePhotos]);
 
-  // Create RANDOM order photos for carousel ONCE
+  // ======================
+  // RANDOM HEADER CAROUSEL
+  // ======================
   useEffect(() => {
     const shuffled = [...photos].sort(() => 0.5 - Math.random());
     setRandomCarouselPhotos(shuffled);
   }, []);
 
-  // Auto play effect for carousel
   useEffect(() => {
-    if (randomCarouselPhotos.length === 0) return;
+    if (!randomCarouselPhotos.length) return;
 
     const interval = setInterval(() => {
       setCarouselIndex((prev) =>
@@ -60,7 +88,9 @@ const Gallery = () => {
     return () => clearInterval(interval);
   }, [randomCarouselPhotos]);
 
-  // Keyboard support for modal
+  // ======================
+  // KEYBOARD SUPPORT
+  // ======================
   useEffect(() => {
     if (!modalOpen) return;
 
@@ -77,16 +107,16 @@ const Gallery = () => {
   return (
     <main className="gallery-page">
       <section className="app-container py-12">
+
+        {/* ================= HEADER ================= */}
         <div className="gallery-header text-center">
           <h1 className="mb-4">Photo Gallery</h1>
-
           <p className="text-lead">
-            Browse and download high-resolution images from our wedding
-            celebration
+            Browse and download high-resolution wedding photos
           </p>
         </div>
 
-        {/* Header Auto Carousel */}
+        {/* ================= CAROUSEL ================= */}
         <header className="gallery-header-carousel">
           {randomCarouselPhotos.length > 0 && (
             <div className="carousel-frame">
@@ -102,14 +132,21 @@ const Gallery = () => {
           )}
         </header>
 
-        {/* Gallery Grid */}
+        {/* ================= PROFESSIONAL PHOTOS ================= */}
+        <h2 className="gallery-section-title">
+          Professional Photos
+        </h2>
+
         <div className="professional-grid mb-12">
           {filteredPhotos.map((photo, index) => (
             <div
               key={photo.id}
               className="popup-photo-wrapper"
-              onClick={() => openModal(index)}
-              onKeyDown={(e) => e.key === "Enter" && openModal(index)}
+              onClick={() => openModal(index, "photos")}
+              onKeyDown={(e) =>
+                e.key === "Enter" &&
+                openModal(index, "photos")
+              }
               role="button"
               tabIndex={0}
             >
@@ -118,19 +155,51 @@ const Gallery = () => {
                 alt={photo.title}
                 className="grid-image"
               />
-              <div className="photo-title-overlay">{photo.title}</div>
+              <div className="photo-title-overlay">
+                {photo.title}
+              </div>
             </div>
           ))}
         </div>
-        {/* End of Gallery Message */}
-        <div className="gallery-end-message">
-          That's all the photos for now! 💖
+
+        {/* ================= RAW PHOTOS ================= */}
+        <h2 className="gallery-section-title">
+          Raw Photos
+        </h2>
+
+        <div className="professional-grid mb-12">
+          {filteredRawPhotos.map((photo, index) => (
+            <div
+              key={photo.id}
+              className="popup-photo-wrapper"
+              onClick={() => openModal(index, "raw")}
+              onKeyDown={(e) =>
+                e.key === "Enter" &&
+                openModal(index, "raw")
+              }
+              role="button"
+              tabIndex={0}
+            >
+              <img
+                src={photo.imageUrl}
+                alt={photo.title}
+                className="grid-image"
+              />
+              <div className="photo-title-overlay">
+                {photo.title}
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* ===== QUICK NAVIGATION AFTER ABOUT-CONTAINER ===== */}
+        <div className="gallery-end-message">
+          That's all the photos for now 💖
+        </div>
+
+        {/* ================= QUICK NAV ================= */}
         <div className="quick-nav-wrapper">
           <div className="quick-nav-message">
-            Explore more sections of our wedding celebration:
+            Explore more sections:
           </div>
 
           <section className="quick-nav about-quick-nav">
@@ -141,7 +210,7 @@ const Gallery = () => {
 
             <Link to="/videos" className="nav-card">
               <h3>🎬 Videos</h3>
-              <p>Watch cinematic films</p>
+              <p>Watch films</p>
             </Link>
 
             <Link to="/about" className="nav-card">
@@ -151,50 +220,48 @@ const Gallery = () => {
 
             <Link to="/contact" className="nav-card">
               <h3>📩 Contact</h3>
-              <p>Send your wishes</p>
+              <p>Send wishes</p>
             </Link>
           </section>
         </div>
 
-        {/* Modal Popup */}
-        {/* Modal Popup */}
-        {modalOpen && filteredPhotos.length > 0 && (
-          <div className="image-modal-backdrop" onClick={closeModal}>
+        {/* ================= MODAL ================= */}
+        {modalOpen && activePhotos.length > 0 && (
+          <div
+            className="image-modal-backdrop"
+            onClick={closeModal}
+          >
             <div
               className="image-modal-content"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 className="modal-close-x"
                 onClick={closeModal}
-                aria-label="Close"
               >
                 ✕
               </button>
 
-              {/* Full-size Image */}
               <img
-                src={filteredPhotos[activeIndex].imageUrl}
-                alt={filteredPhotos[activeIndex].title}
+                src={activePhotos[activeIndex].imageUrl}
+                alt={activePhotos[activeIndex].title}
                 className="modal-preview-image"
               />
 
-              {/* Image Title */}
               <h3 className="modal-image-title">
-                {filteredPhotos[activeIndex].title}
+                {activePhotos[activeIndex].title}
               </h3>
 
-              {/* ===== First Row: Prev / Next ===== */}
               <div className="modal-nav-row">
                 <button onClick={prevImage}>‹ Prev</button>
                 <button onClick={nextImage}>Next ›</button>
               </div>
 
-              {/* ===== Second Row: Download / WhatsApp ===== */}
               <div className="modal-action-row">
                 <a
-                  href={filteredPhotos[activeIndex].downloadUrl}
+                  href={
+                    activePhotos[activeIndex].downloadUrl
+                  }
                   download
                   className="modal-download-btn"
                 >
@@ -203,7 +270,7 @@ const Gallery = () => {
 
                 <a
                   href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
-                    filteredPhotos[activeIndex].imageUrl
+                    activePhotos[activeIndex].imageUrl
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -213,9 +280,8 @@ const Gallery = () => {
                 </a>
               </div>
 
-              {/* Counter */}
               <div className="carousel-counter">
-                {activeIndex + 1} / {filteredPhotos.length}
+                {activeIndex + 1} / {activePhotos.length}
               </div>
             </div>
           </div>

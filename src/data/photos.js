@@ -148,7 +148,7 @@ const photos = driveLinks.map((link, index) => {
 
   return {
     id: index + 1,
-    title: `Raw Photo ${index + 1}`,
+    title: `Professional Photo ${index + 1}`,
     imageUrl: `https://drive.google.com/thumbnail?id=${id}&sz=w1000`,
     downloadUrl: `https://drive.google.com/uc?export=download&id=${id}`,
   };
